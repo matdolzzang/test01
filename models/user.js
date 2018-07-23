@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     authId : {type: String, required: true},
     password: { type: String, required: true, trim: true },
     salt : {type: String, required : false},
-    email : { type: String, required: true, trim: true /*, validate:[ {validator : NameAlphabeticValidator,msg: "only enter alpabet"}]*/},
+    email : { type: String, required: true, trim: true , validate:[ {validator : NameAlphabeticValidator,msg: "only enter alpabet"}]},
     nickname:  { type: String, required: false,  trim: true },
     create_date : Date,
     modify_date : Date,

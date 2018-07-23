@@ -15,8 +15,14 @@ var users= require('./routes/user_router')(app,userSchema)
 
 app.use('/api/users',users);
 app.set('port',process.envPORT || 3000);
+app.set('views', __dirname + '/views_file');
+
 app.use(express.static('public'));
 app.use(express.static('models'));
+
+app.use(session({ secret: '@#@$MYSIGN#@$#$', resave: false, saveUninitialized: true })); // 세션 활성화
+app.use(passport.initialize()); // passport 구동
+app.use(passport.session()); // 세션 연결
 
 var options = {
     server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
