@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import json
+
+json_data = open('secret.json').read()
+data = json.loads(json_data)
+
+my_key = data['DB_ADMIN_PASSWORD']
+# Keep secret keys in secrets.json
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -79,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'test',
         'USER' : 'root',
-        'PASSWORD' : 'enwkd0329!',
+        'PASSWORD' : my_key,
         'HOST' : '127.0.0.1',
         'PORT' : '3306',
     }
