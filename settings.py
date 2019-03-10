@@ -19,7 +19,7 @@ data = json.loads(json_data)
 my_key = data['DB_ADMIN_PASSWORD']
 # Keep secret keys in secrets.json
 
-
+Django_key = data['django_key']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,8 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#0z%075&c+*49@9xx(w*96a)cy@uw5wtyew0cwqwju2n3s4_bw'
-
+SECRET_KEY = Django_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
